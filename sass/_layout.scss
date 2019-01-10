@@ -1,0 +1,36 @@
+.container {
+    max-width: 120rem;
+    margin: 8rem auto;
+    background-color: var(--color-grey-light-1);
+    box-shadow: var(--shadow-dark);
+
+    min-height: 50rem;
+}
+
+.header {
+    height: 7rem;
+    background-color: #fff;
+    border-bottom: var(--color-grey-light-2);
+}
+
+.content {
+    display: flex;
+    /* By default, will set elements side by side */
+}
+
+.sidebar {
+    background-color: var(--color-grey-dark-1);
+
+    flex: 0 0 18%;
+    /* flex: grow shrink basis flex-basis (in this case 18%) is the width */
+    /* grow 0 so we don't want element to grow if there's some space
+    shrink 0 so we don't want element to shrink if there's NOT enough space
+    basis 18% because we always want it at 18% */
+}
+
+.hotel-view {
+    background-color: #fff;
+
+    flex: 1;
+    /* with flex: 1, element will grow as much as it can */
+}
