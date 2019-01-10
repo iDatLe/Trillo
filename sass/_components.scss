@@ -1,7 +1,7 @@
 /* LOGO */
 .logo {
     height: 3.25rem;
-    margin-left: 3rem;
+    margin-left: 2rem;
 }
 
 /* SEARCH */
@@ -70,17 +70,52 @@
 
 /* USER */
 .user-nav {
-    &__icon-box {
 
+    display: flex;
+    align-items: center;
+    align-self: stretch;
+    /* The stretch will make the div take up its entire height */
+
+    & > * {
+        /* This selects all of its direct children, not children's chidlren */
+        padding: 0 2rem;
+        cursor: pointer;
+        height: 100%;
+        /* Makes the gray take up full height of its container or div, but bring the icons to the top of parent element */
+        display: flex;
+        align-items: center;
+        /* Brings the icons down to center */
+    }
+
+    & > *:hover {
+        background-color: var(--color-grey-light-2);
+    }
+
+    &__icon-box {
+        position: relative;
     }
 
     &__icon {
         height: 2.25rem;
         width: 2.25rem;
+        fill: var(--color-grey-dark-2);
     }
 
     &__notification {
+        font-size: .8rem;
+        height: 1.75rem;
+        width: 1.75rem;
+        border-radius: 50%;
+        background-color: var(--color-primary);
+        color: #fff;
+        position: absolute;
+        top: 1.5rem;
+        right: 1.1rem;
 
+        display: flex;
+        /* This is to center the number in the pink bubble */
+        justify-content: center;
+        align-items: center;
     }
 
     &__user {
@@ -90,10 +125,81 @@
     &__user-photo {
         height: 3.75rem;
         border-radius: 50%;
+        margin-right: 1rem;
     }
 
-    &__user-name {
+}
 
+/* SIDE NAVIGATION */
+.side-nav {
+
+    font-size: 1.4rem;
+    list-style: none;
+    margin-top: 3.5rem;
+
+    &__item {
+        position: relative;
+
+        &:not(:last-child) {
+            margin-bottom: .5rem;
+        }
     }
 
+    &__item::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        width: 3px;
+        background-color: var(--color-primary);
+        transform: scaleY(0);
+        transition: transform .2s,
+                    width .4s cubic-bezier(1, 0, 0, 1) .2s,
+                    background-color .1s;
+        /* Transform happens in .2s then delays .2s before activating the width */
+    }
+    
+    &__item:hover::before,
+    &__item--active::before {
+        transform: scaleY(1);
+        width: 100%;
+    }
+
+    &__item:active::before {
+        background-color: var(--color-primary-light);
+    }
+
+
+    &__link:link,
+    &__link:visited {
+        color: var(--color-grey-light-1);
+        text-decoration: none;
+        text-transform: uppercase;
+        display: block;
+        padding: 1.5rem 3rem;
+        position: relative;
+        z-index: 10;
+
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        width: 1.75rem;
+        height: 1.75rem;
+        margin-right: 2rem;
+        fill: currentColor;
+        /* The color of the parent element */
+    }
+
+}
+
+/* LEGAL TEXT */
+
+.legal {
+    font-size: 1.2rem;
+    text-align: center;
+    padding: 2.5rem;
+    color: var(--color-grey-light-4);
 }
