@@ -45,9 +45,14 @@ body {
   min-height: 50rem; }
 
 .header {
+  font-size: 1.4rem;
   height: 7rem;
   background-color: #fff;
-  border-bottom: var(--color-grey-light-2); }
+  border-bottom: var(--color-grey-light-2);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  /* sets all items along the main axis to be centered */ }
 
 .content {
   display: flex;
@@ -68,12 +73,52 @@ body {
 
 /* LOGO */
 .logo {
-  height: 3.25rem; }
+  height: 3.25rem;
+  margin-left: 3rem; }
 
 /* SEARCH */
-.search__icon {
-  height: 2rem;
-  width: 2rem; }
+.search {
+  /* This flex item is also a flex container */
+  flex: 0 0 40%;
+  /* 40% width */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* justify-content center will center the search bar in its element */ }
+  .search__input {
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: var(--color-grey-light-2);
+    border: none;
+    padding: .7rem 2rem;
+    border-radius: 100px;
+    width: 90%;
+    transition: all .2s;
+    margin-right: -3.25rem;
+    /* Moves the search bar right, making the magnifying glass go on top of search bar */ }
+    .search__input:focus {
+      outline: none;
+      width: 100%;
+      background-color: var(--color-grey-light-3); }
+    .search__input::-webkit-input-placeholder {
+      font-weight: 100;
+      color: var(--color-grey-light-4); }
+  .search__input:focus + .search__button {
+    background-color: var(--color-grey-light-3);
+    /* So that once focused, the icon will have same background color as search bar */ }
+  .search__button {
+    border: none;
+    background-color: var(--color-grey-light-2); }
+    .search__button:focus {
+      outline: none; }
+    .search__button:active {
+      transform: translateY(2px); }
+  .search__icon {
+    height: 2rem;
+    width: 2rem;
+    fill: var(--color-grey-dark-3);
+    /* fill changes the svg color */ }
 
 /* USER */
 .user-nav__icon {
