@@ -203,3 +203,16 @@
     padding: 2.5rem;
     color: var(--color-grey-light-4);
 }
+
+/* PHOTO GALLERY */
+
+.gallery {
+
+    display: flex;
+
+    &__photo {
+        width: 100%;
+        display: block;
+        /* Will help avoid small space underneath image */
+    }
+}
