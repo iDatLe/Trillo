@@ -19,8 +19,18 @@
 
     --line: 1px solid var(--color-grey-light-2);
 
-
 }
+
+/* When applying multiple media queries in an element, largest go first and smallest goes last
+in case there are conflicting styling, the smallest one will apply last */
+
+/* REM is in relation to its root element while EM is in relation to its nearest font size */
+
+$bp-largest: 75em; /* 1200px */
+$bp-large: 68.75em; /* 1100 divided by 16px */
+$bp-medium: 56.25em; /* 900 divided by 16px */
+$bp-small: 37.5em; /* 600 divided by 16px */
+$bp-smallest: 31.25em; /* 500 divided by 16px */
 
 * {
     margin: 0;
@@ -37,6 +47,11 @@ html {
     box-sizing: border-box;
     font-size: 62.5%;
     /* 1rem = 10px, 10px/16px = 62.5% */
+
+    @media only screen and (max-width: $bp-large) {
+        font-size: 50%;
+        /* 50% because global font size is 16px. 50% would be 8px for responsive design */
+    }
 }
 
 body {
